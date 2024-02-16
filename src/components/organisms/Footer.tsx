@@ -11,14 +11,14 @@ const Footer: React.FunctionComponent = () => {
         <div className="flex gap-4">
           <a
             href="https://github.com/felix1251"
-            className="text-3xl text-secondary-light hover:text-primary"
+            className="text-[1.6rem] text-secondary-light hover:text-primary"
             target="_blank"
           >
             <FaGithub />
           </a>
           <a
             href="https://www.linkedin.com/in/fabacajen"
-            className="text-3xl text-secondary-light hover:text-primary"
+            className="text-[1.6rem] text-secondary-light hover:text-primary"
             target="_blank"
           >
             <FaLinkedin />
