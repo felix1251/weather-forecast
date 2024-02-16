@@ -10,12 +10,14 @@ import {
 
 const Landing = React.lazy(() => import("@/pages/Landing"));
 const CityWeatherInfo = React.lazy(() => import("@/pages/CityWeatherInfo"));
+const NotFound = React.lazy(() => import("@/pages/NotFound"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainLayout />}>
       <Route index element={<Landing />} />
       <Route path="city-wheather/:city" element={<CityWeatherInfo />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
 );

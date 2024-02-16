@@ -14,7 +14,7 @@ const MainLayout = () => {
   return (
     <>
       <Navbar />
-      <div className="flex-1 margin-max-screen py-10">
+      <div className="flex-1 margin-max-screen py-10 relative">
         <Suspense fallback={<LoadingIndicator />}>
           <Outlet />
         </Suspense>
