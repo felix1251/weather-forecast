@@ -14,7 +14,17 @@ export interface IWeatherDetails {
   icon: string;
 }
 
+export interface IWeatherSys {
+  country: string;
+  id: number;
+  sunrise: number;
+  sunset: number;
+  type: number;
+}
+
 export interface IWeather {
   main: IWeatherMain;
   weather: IWeatherDetails[];
+  name: string;
+  sys: IWeatherSys;
 }

@@ -1,4 +1,5 @@
-import { IWeather } from "@/interface/weather.interface";
+import { IWeather } from "@/interfaces/weather.interface";
+import { CityNotFound, WeatherTable } from "@/molecules";
 import { axiosFetcher } from "@/utils/api";
 import React from "react";
 import { useParams, useSearchParams } from "react-router-dom";
@@ -8,7 +9,11 @@ const WheatherInfo: React.FunctionComponent = () => {
   const params = useParams();
   const [searchParams] = useSearchParams();
 
-  const { error, data, isLoading } = useSWR<IWeather[]>(
+  const {
+    error,
+    data: weather,
+    isLoading,
+  } = useSWR<IWeather>(
     `http://api.openweathermap.org/data/2.5/weather?q=${
       params.city
     },${searchParams.get("ct")}&appid&appid=${
@@ -17,9 +22,19 @@ const WheatherInfo: React.FunctionComponent = () => {
     axiosFetcher
   );
 
-  console.log(data, error);
+  if (error) {
+    return <CityNotFound />;
+  }
 
-  return <>{isLoading && <div>loading...</div>}</>;
+  return (
+    <div className="grid place-items-center w-full h-full">
+      {!isLoading && weather ? (
+        <WeatherTable weather={weather} />
+      ) : (
+        <div>loading...</div>
+      )}
+    </div>
+  );
 };
 
 export default WheatherInfo;

@@ -1,5 +1,5 @@
 import { Button } from "@/atoms";
-import { ICity } from "@/interface/city.interface";
+import { ICity } from "@/interfaces/city.interface";
 import { Combobox, Transition } from "@headlessui/react";
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
