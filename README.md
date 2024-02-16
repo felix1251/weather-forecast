@@ -2,7 +2,7 @@
 
 Install Dependencies
 
-**(Skip this if yarn already installed)**
+__(Skip this if yarn already installed)__
 
 ```
 npm i -g yarn
