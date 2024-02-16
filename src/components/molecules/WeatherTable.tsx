@@ -29,16 +29,16 @@ const WeatherTable: React.FunctionComponent<IWeatherTableProps> = ({
               <th scope="col" className="px-6 py-3">
                 Temp(F)
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 hidden md:inline-block">
                 Description
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 hidden md:inline-block">
                 Main
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 hidden md:inline-block">
                 Pressure
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 hidden lg:inline-block">
                 Humidity
               </th>
             </tr>
@@ -47,10 +47,18 @@ const WeatherTable: React.FunctionComponent<IWeatherTableProps> = ({
             <tr className="bg-secondary text-white">
               <td className="px-6 py-4">{getFormattedDate(new Date())}</td>
               <td className="px-6 py-4">{weather.main.temp}</td>
-              <td className="px-6 py-4">{weather.weather[0].description}</td>
-              <td className="px-6 py-4">{weather.weather[0].main}</td>
-              <td className="px-6 py-4">{weather.main.temp}</td>
-              <td className="px-6 py-4">{weather.main.humidity}</td>
+              <td className="px-6 py-4 hidden md:inline-block">
+                {weather.weather[0].description}
+              </td>
+              <td className="px-6 py-4 hidden md:inline-block">
+                {weather.weather[0].main}
+              </td>
+              <td className="px-6 py-4 hidden md:inline-block">
+                {weather.main.temp}
+              </td>
+              <td className="px-6 py-4 hidden lg:inline-block">
+                {weather.main.humidity}
+              </td>
             </tr>
           </tbody>
         </table>
