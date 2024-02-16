@@ -1,3 +1,4 @@
+import { LoadingIndicator } from "@/components/atoms";
 import { IWeather } from "@/interfaces/weather.interface";
 import { CityNotFound, WeatherTable } from "@/molecules";
 import { axiosFetcher } from "@/utils/api";
@@ -31,7 +32,7 @@ const WheatherInfo: React.FunctionComponent = () => {
       {!isLoading && weather ? (
         <WeatherTable weather={weather} />
       ) : (
-        <div>loading...</div>
+        <LoadingIndicator />
       )}
     </div>
   );
