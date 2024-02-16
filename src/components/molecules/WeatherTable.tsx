@@ -29,16 +29,16 @@ const WeatherTable: React.FunctionComponent<IWeatherTableProps> = ({
               <th scope="col" className="px-6 py-3">
                 Temp(F)
               </th>
-              <th scope="col" className="px-6 py-3 hidden md:inline-block">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 Description
               </th>
-              <th scope="col" className="px-6 py-3 hidden md:inline-block">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 Main
               </th>
-              <th scope="col" className="px-6 py-3 hidden md:inline-block">
+              <th scope="col" className="px-6 py-3 hidden md:table-cell">
                 Pressure
               </th>
-              <th scope="col" className="px-6 py-3 hidden lg:inline-block">
+              <th scope="col" className="px-6 py-3 hidden lg:table-cell">
                 Humidity
               </th>
             </tr>
@@ -47,16 +47,16 @@ const WeatherTable: React.FunctionComponent<IWeatherTableProps> = ({
             <tr className="bg-secondary text-white">
               <td className="px-6 py-4">{getFormattedDate(new Date())}</td>
               <td className="px-6 py-4">{weather.main.temp}</td>
-              <td className="px-6 py-4 hidden md:inline-block">
+              <td className="px-6 py-4 hidden md:table-cell">
                 {weather.weather[0].description}
               </td>
-              <td className="px-6 py-4 hidden md:inline-block">
+              <td className="px-6 py-4 hidden md:table-cell">
                 {weather.weather[0].main}
               </td>
-              <td className="px-6 py-4 hidden md:inline-block">
+              <td className="px-6 py-4 hidden md:table-cell">
                 {weather.main.temp}
               </td>
-              <td className="px-6 py-4 hidden lg:inline-block">
+              <td className="px-6 py-4 hidden lg:table-cell">
                 {weather.main.humidity}
               </td>
             </tr>
