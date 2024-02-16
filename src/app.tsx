@@ -7,7 +7,12 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
+import { SWRConfig } from "swr";
+import { swrStorageProvider } from "./utils/swr";
 
+const SWRConfigValue: any = { provider: swrStorageProvider };
+
+// lazy routes
 const Landing = React.lazy(() => import("@/pages/Landing"));
 const CityWeatherInfo = React.lazy(() => import("@/pages/CityWeatherInfo"));
 const NotFound = React.lazy(() => import("@/pages/NotFound"));
@@ -31,7 +36,9 @@ function App() {
         redirect_uri: window.location.origin,
       }}
     >
-      <RouterProvider router={router} />;
+      <SWRConfig value={SWRConfigValue}>
+        <RouterProvider router={router} />;
+      </SWRConfig>
     </Auth0Provider>
   );
 }
