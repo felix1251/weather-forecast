@@ -9,8 +9,6 @@ import useSWR from "swr";
 const WheatherInfo: React.FunctionComponent = () => {
   const params = useParams();
 
-  console.log(params);
-
   const {
     error,
     data: weather,
