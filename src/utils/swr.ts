@@ -1,4 +1,4 @@
-export const swrStorageProvider = () => {
+export const swrStorageProvider = (): Map<any, any> => {
   // When initializing, we restore the data from `localStorage` into a map.
   const map = new Map(JSON.parse(localStorage.getItem("appCache") || "[]"));
 
