@@ -20,8 +20,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainLayout />}>
       <Route index element={<Landing />} />
-      <Route path="weather" element={<Authenticated />}>
-        <Route path=":city" element={<CityWeatherInfo />} />
+      <Route element={<Authenticated />}>
+        <Route path="weather/:country/:city" element={<CityWeatherInfo />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>

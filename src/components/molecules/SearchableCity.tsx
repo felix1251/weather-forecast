@@ -108,9 +108,11 @@ const SearchableCity: React.FunctionComponent = () => {
         </div>
       )}
       <Button
-        onClick={() =>
-          navigate(`/weather/${selected?.name}?ct=${selected?.country}`)
-        }
+        onClick={() => {
+          if (!selected) return;
+
+          navigate(`/weather/${selected.country}/${selected.name}`);
+        }}
         disabled={!alreadySelected}
       >
         Display Weather
