@@ -1,12 +1,16 @@
+import { Button } from "@/atoms";
 import { ICity } from "@/interface/city.interface";
 import { Combobox, Transition } from "@headlessui/react";
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const SearchableCity: React.FunctionComponent = () => {
-  const [selected, setSelected] = useState<string>("");
+  const [selected, setSelected] = useState<ICity | object>({});
   const [cityQuery, setCityQuery] = useState<string>("");
   const [cityList, setCityList] = useState<ICity[]>([]);
+
+  const alreadySelected = Object.keys(selected).length > 0;
 
   useEffect(() => {
     const findCity = async () => {
@@ -34,15 +38,16 @@ const SearchableCity: React.FunctionComponent = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col gap-10 items-center">
       <Combobox value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <div className="relative w-full">
             <Combobox.Input
-              className="w-full sm:w-96 text-white rounded-full focus:ring-0 focus:outline-none border-none bg-secondary-light py-3.5 pl-5 pr-10 leading-5"
+              className="w-full sm:w-96 text-lg text-white rounded-full focus:ring-0 focus:outline-none border-none bg-secondary-light py-3.5 pl-12 pr-10 leading-5"
               displayValue={(city: ICity) => city.name}
               onChange={updateCityQuery}
             />
+            <FaSearch className="text-2xl absolute top-3 left-3.5 text-secondary" />
           </div>
           <Transition
             as={Fragment}
@@ -51,18 +56,20 @@ const SearchableCity: React.FunctionComponent = () => {
             leaveTo="opacity-0"
             afterLeave={() => setCityQuery("")}
           >
-            <Combobox.Options className="absolute mt-2 max-h-60 w-full overflow-auto rounded-lg bg-secondary-light py-1 text-lg shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+            <Combobox.Options className="absolute mt-2 max-h-60 w-full overflow-auto rounded-lg bg-secondary-light py-1 text-[16px] shadow-lg ring-1 ring-black/5 focus:outline-none">
               {cityList.length === 0 && cityQuery !== "" ? (
                 <div className="relative cursor-default select-none px-4 py-2 text-gray-700">
                   Nothing found.
                 </div>
               ) : (
-                cityList.map((city, idx) => (
+                cityList.map((city: ICity, idx: number) => (
                   <Combobox.Option
                     key={idx}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 px-5 ${
-                        active ? "text-primary" : "text-white"
+                      `relative cursor-default select-none py-1 px-5 ${
+                        active
+                          ? "text-orange-300 bg-secondary/50"
+                          : "text-white"
                       }`
                     }
                     value={city}
@@ -88,6 +95,15 @@ const SearchableCity: React.FunctionComponent = () => {
           </Transition>
         </div>
       </Combobox>
+      {alreadySelected && (
+        <div className="text-lg">
+          <div className="text-white">
+            <span className="font-semibold text-primary-light">Selected:</span>{" "}
+            {selected.name} ({selected.country})
+          </div>
+        </div>
+      )}
+      <Button disabled={!alreadySelected}>Display Weather</Button>
     </div>
   );
 };

@@ -10,8 +10,6 @@ import {
 import { SWRConfig } from "swr";
 import { swrStorageProvider } from "./utils/swr";
 
-const SWRConfigValue: any = { provider: swrStorageProvider };
-
 // lazy routes
 const Landing = React.lazy(() => import("@/pages/Landing"));
 const CityWeatherInfo = React.lazy(() => import("@/pages/CityWeatherInfo"));
@@ -36,7 +34,7 @@ function App() {
         redirect_uri: window.location.origin,
       }}
     >
-      <SWRConfig value={SWRConfigValue}>
+      <SWRConfig value={{ provider: swrStorageProvider }}>
         <RouterProvider router={router} />;
       </SWRConfig>
     </Auth0Provider>

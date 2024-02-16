@@ -14,7 +14,7 @@ const Button: React.FunctionComponent<IButtonProps> = ({
 }: IButtonProps) => {
   return (
     <button
-      className={`flex items-center gap-2 font-medium rounded-md w-fit ${conditionalVariant(
+      className={`flex items-center gap-2 font-medium rounded-md w-fit disabled:bg-secondary-light disabled:opacity-30 disabled:cursor-not-allowed ${conditionalVariant(
         variant
       )} ${conditionalSize(size)}`}
       {...props}
