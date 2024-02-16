@@ -47,9 +47,10 @@ const SearchableCity: React.FunctionComponent = () => {
         <div className="relative mt-1">
           <div className="relative w-full">
             <Combobox.Input
-              className="w-full sm:w-96 text-lg text-white rounded-full focus:ring-0 focus:outline-none border-none bg-secondary-light py-3.5 pl-12 pr-10 leading-5"
+              className="w-full sm:w-96 text-lg text-white rounded-full focus:ring-0 focus:outline-none border-none bg-secondary-light py-3.5 pl-12 pr-10 leading-5 placeholder:text-gray-300 placeholder:text-lg"
               displayValue={(city: ICity) => city?.name}
               onChange={updateCityQuery}
+              placeholder="City"
             />
             <FaSearch className="text-2xl absolute top-3 left-3.5 text-secondary" />
           </div>
