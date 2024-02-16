@@ -109,7 +109,7 @@ const SearchableCity: React.FunctionComponent = () => {
       )}
       <Button
         onClick={() =>
-          navigate(`/wheather/${selected?.name}?ct=${selected?.country}`)
+          navigate(`/weather/${selected?.name}?ct=${selected?.country}`)
         }
         disabled={!alreadySelected}
       >
