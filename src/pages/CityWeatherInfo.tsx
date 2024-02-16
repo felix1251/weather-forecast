@@ -14,7 +14,7 @@ const WheatherInfo: React.FunctionComponent = () => {
     data: weather,
     isLoading,
   } = useSWR<IWeather>(
-    `http://api.openweathermap.org/data/2.5/weather?q=${params.city},${
+    `https://api.openweathermap.org/data/2.5/weather?q=${params.city},${
       params.country
     }&appid&appid=${import.meta.env.VITE_WEATHER_API_KEY}`,
     axiosFetcher

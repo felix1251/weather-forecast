@@ -18,7 +18,7 @@ const SearchableCity: React.FunctionComponent = () => {
     const findCity = async () => {
       try {
         const res = await axios.get(
-          `http://api.openweathermap.org/geo/1.0/direct?q=${cityQuery}&limit=5&appid=${
+          `https://api.openweathermap.org/geo/1.0/direct?q=${cityQuery}&limit=5&appid=${
             import.meta.env.VITE_WEATHER_API_KEY
           }`
         );
