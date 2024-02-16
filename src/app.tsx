@@ -1,3 +1,4 @@
+import { Authenticated } from "@/route-guard";
 import { MainLayout } from "@/templates";
 import { Auth0Provider } from "@auth0/auth0-react";
 import React from "react";
@@ -19,7 +20,9 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<MainLayout />}>
       <Route index element={<Landing />} />
-      <Route path="wheather/:city" element={<CityWeatherInfo />} />
+      <Route path="wheather" element={<Authenticated />}>
+        <Route path=":city" element={<CityWeatherInfo />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
   )
