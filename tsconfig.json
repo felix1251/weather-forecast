@@ -19,12 +19,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+
+    /* Customs Paths */
     "paths": {
-      "@/*": ["./*"],
-      "@/atoms": ["./components/atoms"],
-      "@/molecules": ["./components/molecules"],
-      "@/organisms": ["./components/organisms"],
-      "@/templates": ["./components/templates"],
+      "@/*": ["./src/*"],
+      "@/atoms": ["./src/components/atoms"],
+      "@/molecules": ["./src/components/molecules"],
+      "@/organisms": ["./src/components/organisms"],
+      "@/templates": ["./src/components/templates"],
+      "@/pages": ["./src/pages"],
     }
   },
   "include": ["src"],

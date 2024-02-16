@@ -2,11 +2,12 @@ import { MainLayout } from "@/templates";
 import React from "react";
 import {
   Route,
+  RouterProvider,
   createBrowserRouter,
   createRoutesFromElements,
 } from "react-router-dom";
 
-const Landing = React.lazy(() => import("../pages/Landing"));
+const Landing = React.lazy(() => import("@/pages/Landing"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,4 +17,8 @@ const router = createBrowserRouter(
   )
 );
 
-export default router;
+function App() {
+  return <RouterProvider router={router} />;
+}
+
+export default App;
