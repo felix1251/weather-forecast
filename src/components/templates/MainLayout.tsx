@@ -1,4 +1,4 @@
-import { Navbar } from "@/organisms";
+import { Footer, Navbar } from "@/organisms";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
@@ -8,6 +8,7 @@ const MainLayout = () => {
       <div className="flex-1 margin-max-screen py-10">
         <Outlet />
       </div>
+      <Footer />
     </>
   );
 };
